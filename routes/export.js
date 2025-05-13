@@ -1,13 +1,14 @@
-const express = require('express');
+ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const path = require('path');
 
-const EXPORT_PASSWORD = '661996';
+const EXPORT_PASSWORD = '661996'; // পাসওয়ার্ড
 
 router.get('/', (req, res) => {
   const password = req.query.password;
 
+  // পাসওয়ার্ড ভুল হলে Error দেখাবে
   if (password !== EXPORT_PASSWORD) {
     return res.status(401).send('⛔ Unauthorized: সঠিক পাসওয়ার্ড দিন');
   }
@@ -16,7 +17,7 @@ router.get('/', (req, res) => {
 
   res.download(filePath, 'codes.json', (err) => {
     if (err) {
-      res.status(500).send('ফাইল ডাউনলোডে সমস্যা হয়েছে');
+      res.status(500).send('⚠️ ফাইল ডাউনলোডে সমস্যা হয়েছে');
     }
   });
 });
