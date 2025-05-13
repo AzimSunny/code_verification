@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <title>কোড যাচাই</title>
+</head>
+<body>
+    <h2>কোড যাচাই করুন</h2>
+    <% if (result) { %>
+        <p><%= result %></p>
+    <% } %>
+    <form action="/verify" method="POST">
+        <input type="text" name="code" placeholder="৮ ডিজিটের কোড লিখুন" required />
+        <button type="submit">যাচাই করুন</button>
+    </form>
+</body>
+</html>

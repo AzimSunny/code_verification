@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <title>এডমিন - কোড তৈরি</title>
+</head>
+<body>
+    <h2>অ্যাডমিন প্যানেল</h2>
+
+<h3>নতুন কোড তৈরি করুন</h3>
+<form action="/generate" method="POST">
+    <input type="password" name="password" placeholder="পাসওয়ার্ড দিন" required />
+    <input type="number" name="count" placeholder="কতটি কোড?" required />
+    <button type="submit">জেনারেট করুন</button>
+</form>
+
+
+<br>
+<hr>
+<br>
+
+<h3>পুরাতন কোড মুছুন</h3>
+<form action="/delete-old-codes" method="POST">
+    <input type="password" name="password" placeholder="পাসওয়ার্ড দিন" required />
+    <button type="submit">পুরাতন কোড মুছুন</button>
+</form>
+
+
+<br>
+<hr>
+<br>
+
+<h3>বর্তমান কোড তালিকা</h3>
+<ol>
+  <% codes.forEach(code => { %>
+    <li><%= code.code %> - <%= code.used ? 'USED' : 'UNUSED' %></li>
+  <% }) %>
+</ol>
+    
+</body>
+</html>
