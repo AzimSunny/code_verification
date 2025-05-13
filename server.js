@@ -86,9 +86,8 @@ app.post('/delete-old-codes', (req, res) => {
     saveCodes();
     res.send('✅ পুরাতন সব কোড মুছে ফেলা হয়েছে।');
 });
-
+ const exportRoutes = require('./routes/export');
+app.use('/export', exportRoutes);
 app.listen(3000, () => {
     console.log('Server running on http://localhost:3000');
 });
-const exportRoutes = require('./routes/export');
-app.use('/export', exportRoutes);
